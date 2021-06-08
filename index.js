@@ -11,26 +11,38 @@ function convertFahrToCelsius(f){
 } 
 
 function checkYuGiOh(n){
-   var arr = []
+    
    var pn = parseInt(n)
 
    if(typeof n === "number" || (typeof n =="string" && pn + 0 == pn)){
-      for(let i=1; i<=n; i++){
-         if(i%2 == 0){
-            arr[i] = "yu"
-         }
-         else if(i%3 == 0){
-            arr[i] = "gi"
-         }
-         else if(i%5 == 0){
-            arr[i] = "oh"
-         }
+       var arr = new Array
+       for(let i=1; i<=n; i++){
+           arr.push(i)
 
-            arr.push(i)
-         }
-      }
-     
-   console.log(arr)
+           if(i%2 === 0 && i%3 === 0 && i%5 === 0){
+               arr[i-1] = "yu-gi-oh"
+           }
+           else if(i%2 === 0 && i%3 ===0){
+               arr[i-1] = "yu-gi"
+           }
+           else if(i%3 === 0 && i%5 === 0){
+               arr[i-1] = "gi-oh"
+           }
+           else if(i%2 === 0 && i%5 ===0){
+               arr[i-1] = "yu-oh"
+           }else if(i%2 === 0){
+               arr[i-1] ="yu"
+           }else if(i%3 === 0){
+               arr[i-1] = "gi"
+           }
+           else if(i%5 === 0){
+               arr[i-1] = "oh"
+           }
+           
+       }
+       
+       console.log(arr)
+   }
 }
 
 
@@ -39,6 +51,6 @@ function checkYuGiOh(n){
 
 
 
-checkYuGiOh(5)
+checkYuGiOh("20")
 
 //convertFahrToCelsius()
